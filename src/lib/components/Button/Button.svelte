@@ -5,33 +5,30 @@
         variant = "primary",
         size = "md",
         type = "filled",
-        rounded = "sm",
+        borderRadius = "md",
     } = commonProps;
 
-    let baseClass = `type-${type} size-${size} rounded-${rounded} variant-${variant}`;
+    let baseClass = `type-${type} size-${size} border-radius-${borderRadius} variant-${variant}`;
 </script>
 
 <button tabindex="0" class={baseClass}><slot /></button>
 
 <style lang="postcss" scoped>
     button {
+        width: fit-content;
+        height: fit-content;
         background-color: var(
             --button-default-background-color,
             theme("backgroundColor.transparent")
         );
-
         color: var(--button-default-color, theme("textColor.black"));
-
         padding: var(--button-default-padding-y, theme(padding.1))
             var(--button-default-padding-x, theme(padding.3));
-
         box-shadow: var(
             --button-default-box-shadow,
             theme("boxShadow.DEFAULT")
         );
-
         border: 1px solid transparent;
-
         transition: all
             var(
                 --button-default-transition-duration,
@@ -58,6 +55,44 @@
             scale: var(--button-default-focus-scale, 1.1);
         }
 
+        /* BORDER RADIUS */
+        &.border-radius-none {
+            @apply rounded-none;
+        }
+        &.border-radius-sm {
+            @apply rounded-sm;
+        }
+        &.border-radius-md {
+            @apply rounded-md;
+        }
+        &.border-radius-lg {
+            @apply rounded-lg;
+        }
+        &.border-radius-xl {
+            @apply rounded-xl;
+        }
+        &.border-radius-full {
+            @apply rounded-full;
+        }
+
+        /* SIZE */
+        &.size-xs {
+            @apply text-xs px-1 py-0.5;
+        }
+        &.size-sm {
+            @apply text-sm px-2 py-0.5;
+        }
+        &.size-md {
+            @apply text-base px-3 py-1;
+        }
+        &.size-lg {
+            @apply text-lg px-3 py-1.5;
+        }
+        &.size-xl {
+            @apply text-xl px-4 py-2;
+        }
+
+        /* TYPE:FILLED */
         &.type-filled {
             &.variant-primary {
                 background-color: var(--color-primary-500);
@@ -86,6 +121,15 @@
                 }
             }
 
+            &.variant-success {
+                background-color: var(--color-success-500);
+                color: var(--on-success);
+
+                &:hover {
+                    background-color: var(--color-success-600);
+                }
+            }
+
             &.variant-dark {
                 background-color: theme("backgroundColor.gray.950");
                 color: theme("textColor.white");
@@ -96,9 +140,9 @@
             }
         }
 
+        /* TYPE:OUTLINED */
         &.type-outlined {
             &.variant-primary {
-                background-color: var(--on-primary);
                 color: var(--color-primary-500);
                 border: 1px solid var(--color-primary-500);
 
@@ -109,7 +153,6 @@
             }
 
             &.variant-secondary {
-                background-color: var(--on-secondary);
                 color: var(--color-secondary-500);
                 border: 1px solid var(--color-secondary-500);
 
@@ -120,7 +163,6 @@
             }
 
             &.variant-tertiary {
-                background-color: var(--on-tertiary);
                 color: var(--color-tertiary-500);
                 border: 1px solid var(--color-tertiary-500);
 
@@ -130,8 +172,17 @@
                 }
             }
 
+            &.variant-success {
+                color: var(--color-success-500);
+                border: 1px solid var(--color-success-500);
+
+                &:hover {
+                    background-color: var(--color-success-500);
+                    color: var(--on-success);
+                }
+            }
+
             &.variant-dark {
-                background-color: theme("backgroundColor.white");
                 color: theme("textColor.black");
                 border: 1px solid theme("borderColor.black");
 
@@ -142,6 +193,7 @@
             }
         }
 
+        /* TYPE:SOFT */
         &.type-soft {
             &.variant-primary {
                 background-color: var(--color-primary-100);
@@ -173,6 +225,17 @@
                 &:hover {
                     background-color: var(--color-tertiary-200);
                     color: var(--color-tertiary-950);
+                }
+            }
+
+            &.variant-success {
+                background-color: var(--color-success-100);
+                border: 1px solid var(--color-success-600);
+                color: var(--color-success-800);
+
+                &:hover {
+                    background-color: var(--color-success-200);
+                    color: var(--color-success-950);
                 }
             }
 
