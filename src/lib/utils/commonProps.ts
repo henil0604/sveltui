@@ -1,20 +1,20 @@
-type Variants = "primary" | "secondary" | "tertiary" | "dark"
+type Variants = "primary" | "secondary" | "tertiary" | "dark" | "success" | "warn" | "error" | "info"
 type Sizes = "xs" | "sm" | "md" | "lg" | "xl"
 type Types = "filled" | "outlined" | "soft"
-type RoundedValues = "sm" | "md" | "lg" | "xl" | "none" | "full"
+type BorderRadiusValues = "sm" | "md" | "lg" | "xl" | "none" | "full"
 
 interface CommonProps {
     variant?: Variants,
     size?: Sizes,
     type?: Types,
-    rounded?: RoundedValues
+    borderRadius?: BorderRadiusValues
 }
 
 const commonProps: CommonProps = {
     variant: undefined,
     size: undefined,
     type: undefined,
-    rounded: undefined
+    borderRadius: undefined
 }
 
 export default commonProps;
