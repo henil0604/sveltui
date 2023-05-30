@@ -2,9 +2,9 @@
     import commonProps from "$lib/utils/commonProps";
     import cssVariables from "$lib/utils/useCssVariables";
 
-    export let stroke: number | undefined = undefined;
+    export let stroke: string | undefined = undefined;
 
-    export let spinDuration: number | undefined = undefined;
+    export let spinDuration: string | undefined = undefined;
 
     export let { variant = "dark", size = "md" } = commonProps;
 
@@ -14,8 +14,8 @@
 <div
     class={baseClass}
     use:cssVariables={{
-        stroke: { value: stroke, suffix: "px" },
-        spinDuration: { value: spinDuration, suffix: "ms" },
+        stroke,
+        spinDuration,
     }}
 />
 
