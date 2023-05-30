@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
     import commonProps from "$lib/utils/commonProps";
+    import { Spinner } from "$lib";
 
     export let {
         variant = "primary",
@@ -8,12 +9,34 @@
         borderRadius = "sm",
     } = commonProps;
 
-    let baseClass = `type-${type} size-${size} border-radius-${borderRadius} variant-${variant}`;
+    export let loading = false;
+    export let loadingSpinDuration: number | undefined = undefined;
+
+    let baseClass = `flex flex-wrap justify-center items-center gap-2 type-${type} size-${size} border-radius-${borderRadius} variant-${variant} ${
+        loading ? "cursor-wait" : ""
+    }`;
 </script>
 
-<button on:click on:dblclick on:focus tabindex="0" class={baseClass}
-    ><slot /></button
+<button
+    on:click
+    on:dblclick
+    on:focus
+    tabindex="0"
+    class={baseClass}
+    disabled={loading}
 >
+    {#if loading}
+        <div>
+            <Spinner
+                spinDuration={loadingSpinDuration}
+                {variant}
+                stroke={3}
+                size="xs"
+            />
+        </div>
+    {/if}
+    <slot />
+</button>
 
 <style lang="postcss" scoped>
     button {
@@ -42,7 +65,7 @@
             );
         border-radius: var(--button-default-border-radius);
 
-        &:hover {
+        &:not(:disabled):hover {
             background-color: var(
                 --button-default-hover-background-color,
                 theme("backgroundColor.gray.100")
@@ -54,8 +77,12 @@
             );
         }
 
-        &:active {
+        &:not(:disabled):active {
             scale: var(--button-default-focus-scale, 1.1);
+        }
+
+        &:disabled {
+            @apply opacity-80;
         }
 
         /* BORDER RADIUS */
@@ -104,6 +131,10 @@
                 &:hover {
                     background-color: var(--color-primary-600);
                 }
+
+                &:disabled {
+                    background-color: var(--color-primary-300);
+                }
             }
 
             &.variant-secondary {
@@ -112,6 +143,10 @@
 
                 &:hover {
                     background-color: var(--color-secondary-600);
+                }
+
+                &:disabled {
+                    background-color: var(--color-secondary-300);
                 }
             }
 
@@ -122,6 +157,10 @@
                 &:hover {
                     background-color: var(--color-tertiary-600);
                 }
+
+                &:disabled {
+                    background-color: var(--color-tertiary-300);
+                }
             }
 
             &.variant-success {
@@ -130,6 +169,10 @@
 
                 &:hover {
                     background-color: var(--color-success-600);
+                }
+
+                &:disabled {
+                    background-color: var(--color-success-300);
                 }
             }
 
@@ -140,6 +183,10 @@
                 &:hover {
                     background-color: var(--color-warn-600);
                 }
+
+                &:disabled {
+                    background-color: var(--color-warn-300);
+                }
             }
 
             &.variant-error {
@@ -149,6 +196,10 @@
                 &:hover {
                     background-color: var(--color-error-600);
                 }
+
+                &:disabled {
+                    background-color: var(--color-error-300);
+                }
             }
 
             &.variant-info {
@@ -157,6 +208,10 @@
 
                 &:hover {
                     background-color: var(--color-info-600);
+                }
+
+                &:disabled {
+                    background-color: var(--color-info-300);
                 }
             }
 
@@ -176,9 +231,13 @@
                 color: var(--color-primary-500);
                 border: 1px solid var(--color-primary-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-primary-500);
                     color: var(--on-primary);
+                }
+
+                &:disabled {
+                    background-color: var(--color-primary-50);
                 }
             }
 
@@ -186,9 +245,13 @@
                 color: var(--color-secondary-500);
                 border: 1px solid var(--color-secondary-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-secondary-500);
                     color: var(--on-secondary);
+                }
+
+                &:disabled {
+                    background-color: var(--color-secondary-50);
                 }
             }
 
@@ -196,9 +259,13 @@
                 color: var(--color-tertiary-500);
                 border: 1px solid var(--color-tertiary-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-tertiary-500);
                     color: var(--on-tertiary);
+                }
+
+                &:disabled {
+                    background-color: var(--color-tertiary-50);
                 }
             }
 
@@ -206,9 +273,13 @@
                 color: var(--color-success-500);
                 border: 1px solid var(--color-success-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-success-500);
                     color: var(--on-success);
+                }
+
+                &:disabled {
+                    background-color: var(--color-success-50);
                 }
             }
 
@@ -216,9 +287,13 @@
                 color: var(--color-warn-500);
                 border: 1px solid var(--color-warn-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-warn-500);
                     color: var(--on-warn);
+                }
+
+                &:disabled {
+                    background-color: var(--color-warn-50);
                 }
             }
 
@@ -226,9 +301,13 @@
                 color: var(--color-error-500);
                 border: 1px solid var(--color-error-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-error-500);
                     color: var(--on-error);
+                }
+
+                &:disabled {
+                    background-color: var(--color-error-50);
                 }
             }
 
@@ -236,9 +315,13 @@
                 color: var(--color-info-500);
                 border: 1px solid var(--color-info-500);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-info-500);
                     color: var(--on-info);
+                }
+
+                &:disabled {
+                    background-color: var(--color-info-50);
                 }
             }
 
@@ -246,9 +329,13 @@
                 color: theme("textColor.black");
                 border: 1px solid theme("borderColor.black");
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: theme("backgroundColor.black");
                     color: theme("textColor.white");
+                }
+
+                &:disabled {
+                    background-color: theme("backgroundColor.gray.50");
                 }
             }
         }
@@ -260,9 +347,13 @@
                 border: 1px solid var(--color-primary-600);
                 color: var(--color-primary-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-primary-200);
                     color: var(--color-primary-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-primary-50);
                 }
             }
 
@@ -271,9 +362,13 @@
                 border: 1px solid var(--color-secondary-600);
                 color: var(--color-secondary-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-secondary-200);
                     color: var(--color-secondary-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-secondary-100);
                 }
             }
 
@@ -282,9 +377,13 @@
                 border: 1px solid var(--color-tertiary-600);
                 color: var(--color-tertiary-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-tertiary-200);
                     color: var(--color-tertiary-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-tertiary-100);
                 }
             }
 
@@ -293,9 +392,13 @@
                 border: 1px solid var(--color-success-600);
                 color: var(--color-success-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-success-200);
                     color: var(--color-success-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-success-100);
                 }
             }
 
@@ -304,9 +407,13 @@
                 border: 1px solid var(--color-warn-600);
                 color: var(--color-warn-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-warn-200);
                     color: var(--color-warn-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-warn-100);
                 }
             }
 
@@ -315,9 +422,13 @@
                 border: 1px solid var(--color-error-600);
                 color: var(--color-error-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-error-200);
                     color: var(--color-error-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-error-100);
                 }
             }
 
@@ -326,9 +437,13 @@
                 border: 1px solid var(--color-info-600);
                 color: var(--color-info-800);
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: var(--color-info-200);
                     color: var(--color-info-950);
+                }
+
+                &:disabled {
+                    background-color: var(--color-info-100);
                 }
             }
 
@@ -337,9 +452,13 @@
                 border: 1px solid theme("backgroundColor.gray.600");
                 color: theme("textColor.gray.800");
 
-                &:hover {
+                &:not(:disabled):hover {
                     background-color: theme("backgroundColor.gray.200");
                     color: theme("textColor.gray.800");
+                }
+
+                &:disabled {
+                    background-color: theme("backgroundColor.gray.100");
                 }
             }
         }
