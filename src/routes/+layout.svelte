@@ -1,6 +1,6 @@
 <script>
-    import "$lib/pat.postcss";
     import "$lib/themes/default.postcss";
+    import "$lib/pat.postcss";
 </script>
 
 <slot />
