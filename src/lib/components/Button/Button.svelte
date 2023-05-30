@@ -142,6 +142,15 @@
                 }
             }
 
+            &.variant-error {
+                background-color: var(--color-error-500);
+                color: var(--on-error);
+
+                &:hover {
+                    background-color: var(--color-error-600);
+                }
+            }
+
             &.variant-dark {
                 background-color: theme("backgroundColor.gray.950");
                 color: theme("textColor.white");
@@ -201,6 +210,16 @@
                 &:hover {
                     background-color: var(--color-warn-500);
                     color: var(--on-warn);
+                }
+            }
+
+            &.variant-error {
+                color: var(--color-error-500);
+                border: 1px solid var(--color-error-500);
+
+                &:hover {
+                    background-color: var(--color-error-500);
+                    color: var(--on-error);
                 }
             }
 
@@ -269,6 +288,17 @@
                 &:hover {
                     background-color: var(--color-warn-200);
                     color: var(--color-warn-950);
+                }
+            }
+
+            &.variant-error {
+                background-color: var(--color-error-100);
+                border: 1px solid var(--color-error-600);
+                color: var(--color-error-800);
+
+                &:hover {
+                    background-color: var(--color-error-200);
+                    color: var(--color-error-950);
                 }
             }
 
