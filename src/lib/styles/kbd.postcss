@@ -1,0 +1,14 @@
+.kbd {
+    @apply w-fit h-fit;
+    background-color: var(
+        --default-kbd-tag-background-color,
+        var(--color-surface-800)
+    );
+    border-radius: var(
+        --default-kbd-tag-border-radius,
+        theme("borderRadius.sm")
+    );
+    color: var(--default-kbd-tag-color, var(--on-surface));
+    padding: var(--default-kbd-tag-padding-y, theme("padding[0]"))
+        var(--default-kbd-tag-padding-x, theme("padding[1.5]"));
+}

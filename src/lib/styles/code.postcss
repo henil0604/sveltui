@@ -1,0 +1,14 @@
+.code {
+    @apply w-fit h-fit;
+    background-color: var(
+        --default-code-tag-background-color,
+        var(--color-primary-500)
+    );
+    border-radius: var(
+        --default-code-tag-border-radius,
+        theme("borderRadius.sm")
+    );
+    color: var(--default-code-tag-color, var(--on-primary));
+    padding: var(--default-code-tag-padding-y, theme("padding[0]"))
+        var(--default-code-tag-padding-x, theme("padding[1.5]"));
+}
