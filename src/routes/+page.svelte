@@ -1,5 +1,5 @@
 <script>
-    import { Button } from "$lib";
+    import { Button, Spinner } from "$lib";
     import "../app.postcss";
 </script>
 
@@ -35,5 +35,9 @@
         <Button variant="error" type="soft">Hello World</Button>
         <Button variant="info" type="soft">Hello World</Button>
         <Button variant="dark" type="soft">Hello World</Button>
+    </div>
+
+    <div class="flex gap-1">
+        <Spinner />
     </div>
 </div>
