@@ -9,6 +9,7 @@
         <Button variant="secondary" type="filled">Hello World</Button>
         <Button variant="tertiary" type="filled">Hello World</Button>
         <Button variant="success" type="filled">Hello World</Button>
+        <Button variant="warn" type="filled">Hello World</Button>
         <Button variant="dark" type="filled">Hello World</Button>
     </div>
 
@@ -17,6 +18,7 @@
         <Button variant="secondary" type="outlined">Hello World</Button>
         <Button variant="tertiary" type="outlined">Hello World</Button>
         <Button variant="success" type="outlined">Hello World</Button>
+        <Button variant="warn" type="outlined">Hello World</Button>
         <Button variant="dark" type="outlined">Hello World</Button>
     </div>
 
@@ -25,6 +27,7 @@
         <Button variant="secondary" type="soft">Hello World</Button>
         <Button variant="tertiary" type="soft">Hello World</Button>
         <Button variant="success" type="soft">Hello World</Button>
+        <Button variant="warn" type="soft">Hello World</Button>
         <Button variant="dark" type="soft">Hello World</Button>
     </div>
 </div>

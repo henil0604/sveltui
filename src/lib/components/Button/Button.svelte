@@ -5,13 +5,15 @@
         variant = "primary",
         size = "md",
         type = "filled",
-        borderRadius = "md",
+        borderRadius = "sm",
     } = commonProps;
 
     let baseClass = `type-${type} size-${size} border-radius-${borderRadius} variant-${variant}`;
 </script>
 
-<button tabindex="0" class={baseClass}><slot /></button>
+<button on:click on:dblclick on:focus tabindex="0" class={baseClass}
+    ><slot /></button
+>
 
 <style lang="postcss" scoped>
     button {
@@ -38,6 +40,7 @@
                 --button-default-transition-timing-function,
                 theme("transitionTimingFunction.DEFAULT")
             );
+        border-radius: var(--button-default-border-radius);
 
         &:hover {
             background-color: var(
@@ -130,6 +133,15 @@
                 }
             }
 
+            &.variant-warn {
+                background-color: var(--color-warn-500);
+                color: var(--on-warn);
+
+                &:hover {
+                    background-color: var(--color-warn-600);
+                }
+            }
+
             &.variant-dark {
                 background-color: theme("backgroundColor.gray.950");
                 color: theme("textColor.white");
@@ -179,6 +191,16 @@
                 &:hover {
                     background-color: var(--color-success-500);
                     color: var(--on-success);
+                }
+            }
+
+            &.variant-warn {
+                color: var(--color-warn-500);
+                border: 1px solid var(--color-warn-500);
+
+                &:hover {
+                    background-color: var(--color-warn-500);
+                    color: var(--on-warn);
                 }
             }
 
@@ -236,6 +258,17 @@
                 &:hover {
                     background-color: var(--color-success-200);
                     color: var(--color-success-950);
+                }
+            }
+
+            &.variant-warn {
+                background-color: var(--color-warn-100);
+                border: 1px solid var(--color-warn-600);
+                color: var(--color-warn-800);
+
+                &:hover {
+                    background-color: var(--color-warn-200);
+                    color: var(--color-warn-950);
                 }
             }
 
