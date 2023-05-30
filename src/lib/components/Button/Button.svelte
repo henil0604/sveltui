@@ -151,6 +151,15 @@
                 }
             }
 
+            &.variant-info {
+                background-color: var(--color-info-500);
+                color: var(--on-info);
+
+                &:hover {
+                    background-color: var(--color-info-600);
+                }
+            }
+
             &.variant-dark {
                 background-color: theme("backgroundColor.gray.950");
                 color: theme("textColor.white");
@@ -220,6 +229,16 @@
                 &:hover {
                     background-color: var(--color-error-500);
                     color: var(--on-error);
+                }
+            }
+
+            &.variant-info {
+                color: var(--color-info-500);
+                border: 1px solid var(--color-info-500);
+
+                &:hover {
+                    background-color: var(--color-info-500);
+                    color: var(--on-info);
                 }
             }
 
@@ -299,6 +318,17 @@
                 &:hover {
                     background-color: var(--color-error-200);
                     color: var(--color-error-950);
+                }
+            }
+
+            &.variant-info {
+                background-color: var(--color-info-100);
+                border: 1px solid var(--color-info-600);
+                color: var(--color-info-800);
+
+                &:hover {
+                    background-color: var(--color-info-200);
+                    color: var(--color-info-950);
                 }
             }
 
