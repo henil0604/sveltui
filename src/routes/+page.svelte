@@ -8,7 +8,9 @@
             ><h1 class="text-xl">Hey!</h1></svelte:fragment
         >
         <svelte:fragment slot="body"
-            >Something really bad just happened!!!</svelte:fragment
+            ><div class="py-2">
+                Something really bad just happened!!!
+            </div></svelte:fragment
         >
         <div class="flex justify-end mt-2 gap-1" slot="footer">
             <Button type="soft" variant="tertiary">Ignore</Button>
