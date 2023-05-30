@@ -53,7 +53,7 @@
         on:dragover
         on:keydown
     >
-        <LoadingOverlay show={loading} {variant} stroke="2px" />
+        <LoadingOverlay show={loading} {variant} />
 
         <div class="header">
             <slot name="header" />
