@@ -105,14 +105,12 @@
 
         & > .header {
             @apply h-fit w-full font-semibold;
-            margin-bottom: theme("margin.2");
         }
         & > .body {
             @apply flex-grow;
         }
         & > .footer {
             @apply h-fit w-full;
-            margin-top: theme("margin.2");
         }
 
         &.interactive {
