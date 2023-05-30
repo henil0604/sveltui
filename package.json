@@ -2,6 +2,11 @@
 	"name": "sveltui",
 	"version": "0.0.1",
 	"description": "Design System specially made for svelte",
+	"keywords": [
+		"ui",
+		"sveltekit",
+		"tailwindcss"
+	],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "svelte-kit sync && svelte-package",
