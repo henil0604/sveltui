@@ -1,5 +1,5 @@
 # SveltUI
 
-Another UI Library, Specially Desgined for svelte.
+Another UI Library, Specially Designed for svelte.
 
 > ⚠️ UNDER DEVELOPMENT
