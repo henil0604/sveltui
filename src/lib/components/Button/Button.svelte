@@ -7,10 +7,10 @@
         size = "md",
         type = "filled",
         borderRadius = "sm",
+        loading = false,
     } = commonProps;
 
-    export let loading = false;
-    export let loadingSpinDuration: number | undefined = undefined;
+    export let loadingSpinDuration: string | undefined = undefined;
 
     let baseClass = `flex flex-wrap justify-center items-center gap-2 type-${type} size-${size} border-radius-${borderRadius} variant-${variant} ${
         loading ? "cursor-wait" : ""
@@ -30,7 +30,7 @@
             <Spinner
                 spinDuration={loadingSpinDuration}
                 {variant}
-                stroke={3}
+                stroke="3px"
                 size="xs"
             />
         </div>
