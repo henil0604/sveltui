@@ -20,7 +20,7 @@ function setCssVariables(node: HTMLElement, variables: Variables) {
             value = obj;
         }
 
-        if (typeof obj === "object" && obj?.value) {
+        if (typeof obj === "object" && (obj?.value !== undefined && obj?.value !== null)) {
             value = obj?.value + (obj?.suffix || "")
         }
 
