@@ -4,16 +4,12 @@
     import "../app.postcss";
 </script>
 
-<slot />
+<div class="wrapper">
+    <slot />
+</div>
 
 <style>
-    :global(html, body) {
-        height: 100%;
-    }
-
-    :global(body) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .wrapper {
+        @apply w-full h-full flex justify-center items-center;
     }
 </style>

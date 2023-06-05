@@ -12,6 +12,12 @@
     box-sizing: border-box;
 }
 
+html,
 body {
-    background-color: var(--body-background-color);
+    @apply w-full h-full overflow-auto;
+}
+
+body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
 }
